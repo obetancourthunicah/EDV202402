@@ -1,0 +1,126 @@
+﻿namespace PrimerForm
+{
+    partial class FrmContactos
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            bindingSource1 = new BindingSource(components);
+            ColId = new DataGridViewTextBoxColumn();
+            ColName = new DataGridViewTextBoxColumn();
+            ColEmail = new DataGridViewTextBoxColumn();
+            ColPhone = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(37, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(120, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Contactos";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColId, ColName, ColEmail, ColPhone });
+            dataGridView1.DataSource = bindingSource1;
+            dataGridView1.Location = new Point(47, 80);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.Size = new Size(1040, 774);
+            dataGridView1.TabIndex = 1;
+            // 
+            // ColId
+            // 
+            ColId.DataPropertyName = "Id";
+            ColId.HeaderText = "Id";
+            ColId.MinimumWidth = 10;
+            ColId.Name = "ColId";
+            ColId.ReadOnly = true;
+            ColId.Width = 200;
+            // 
+            // ColName
+            // 
+            ColName.DataPropertyName = "Name";
+            ColName.HeaderText = "Nombre";
+            ColName.MinimumWidth = 10;
+            ColName.Name = "ColName";
+            ColName.ReadOnly = true;
+            ColName.Width = 200;
+            // 
+            // ColEmail
+            // 
+            ColEmail.DataPropertyName = "Email";
+            ColEmail.HeaderText = "Correo";
+            ColEmail.MinimumWidth = 10;
+            ColEmail.Name = "ColEmail";
+            ColEmail.ReadOnly = true;
+            ColEmail.Width = 200;
+            // 
+            // ColPhone
+            // 
+            ColPhone.DataPropertyName = "Phone";
+            ColPhone.HeaderText = "Telefono";
+            ColPhone.MinimumWidth = 10;
+            ColPhone.Name = "ColPhone";
+            ColPhone.ReadOnly = true;
+            ColPhone.Width = 200;
+            // 
+            // FrmContactos
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1132, 894);
+            Controls.Add(dataGridView1);
+            Controls.Add(label1);
+            Name = "FrmContactos";
+            Text = "Listado de Contactos";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label label1;
+        private DataGridView dataGridView1;
+        private BindingSource bindingSource1;
+        private DataGridViewTextBoxColumn ColId;
+        private DataGridViewTextBoxColumn ColName;
+        private DataGridViewTextBoxColumn ColEmail;
+        private DataGridViewTextBoxColumn ColPhone;
+    }
+}
