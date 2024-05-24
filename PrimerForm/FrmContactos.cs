@@ -23,8 +23,28 @@ namespace PrimerForm
             contactos.Add(new Contacto(3, "Beatriz", "beatriz@gmail.com", "00000000"));
 
             this.bindingSource1.DataSource = contactos;
-            
+
         }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmContacto frmContacto = new FrmContacto();
+            //frmContacto.Show(); // Abre el formulario como un panel
+            frmContacto.ShowDialog(); // Bloquea lo demas y solo permite trabajar en el formulario abierto
+            //MessageBox.Show("Se Muestra");
+            if( frmContacto.IsConfirmed == true)
+            {
+                Contacto nuevo = new Contacto(
+                        this.contactos.Count + 1,
+                        frmContacto.ContactName,
+                        frmContacto.ContactEmail,
+                        frmContacto.ContactPhone
+                    );
+                this.contactos.Add(nuevo);
+            }
+            this.bindingSource1.DataSource = this.contactos;
+            this.dataGridView1.Refresh();
+            frmContacto = null;
+        }
     }
 }

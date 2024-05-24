@@ -31,11 +31,12 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            bindingSource1 = new BindingSource(components);
             ColId = new DataGridViewTextBoxColumn();
             ColName = new DataGridViewTextBoxColumn();
             ColEmail = new DataGridViewTextBoxColumn();
             ColPhone = new DataGridViewTextBoxColumn();
+            bindingSource1 = new BindingSource(components);
+            btnNuevo = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -51,6 +52,8 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -58,8 +61,10 @@
             dataGridView1.DataSource = bindingSource1;
             dataGridView1.Location = new Point(47, 80);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1040, 774);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1040, 696);
             dataGridView1.TabIndex = 1;
             // 
             // ColId
@@ -98,11 +103,23 @@
             ColPhone.ReadOnly = true;
             ColPhone.Width = 200;
             // 
+            // btnNuevo
+            // 
+            btnNuevo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnNuevo.Location = new Point(923, 808);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(150, 46);
+            btnNuevo.TabIndex = 2;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
+            // 
             // FrmContactos
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1132, 894);
+            Controls.Add(btnNuevo);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "FrmContactos";
@@ -122,5 +139,6 @@
         private DataGridViewTextBoxColumn ColName;
         private DataGridViewTextBoxColumn ColEmail;
         private DataGridViewTextBoxColumn ColPhone;
+        private Button btnNuevo;
     }
 }
