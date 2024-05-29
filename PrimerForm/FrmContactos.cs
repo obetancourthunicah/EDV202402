@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace PrimerForm
 {
@@ -32,7 +33,7 @@ namespace PrimerForm
             //frmContacto.Show(); // Abre el formulario como un panel
             frmContacto.ShowDialog(); // Bloquea lo demas y solo permite trabajar en el formulario abierto
             //MessageBox.Show("Se Muestra");
-            if( frmContacto.IsConfirmed == true)
+            if (frmContacto.IsConfirmed == true)
             {
                 Contacto nuevo = new Contacto(
                         this.contactos.Count + 1,
@@ -40,11 +41,22 @@ namespace PrimerForm
                         frmContacto.ContactEmail,
                         frmContacto.ContactPhone
                     );
-                this.contactos.Add(nuevo);
+                this.bindingSource1.Add(nuevo);
             }
-            this.bindingSource1.DataSource = this.contactos;
-            this.dataGridView1.Refresh();
             frmContacto = null;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (saveDialog.ShowDialog() == DialogResult.OK) {
+                XmlSerializer serializador = new XmlSerializer(
+                    typeof ( List<Contacto> )
+                );
+                string archivoAGuardar = saveDialog.FileName;
+                StreamWriter generadorDelArchivo = new StreamWriter(archivoAGuardar);
+                serializador.Serialize(generadorDelArchivo, contactos);
+                MessageBox.Show("Archivo Guardado Exitosamente!!!");
+            }
         }
     }
 }

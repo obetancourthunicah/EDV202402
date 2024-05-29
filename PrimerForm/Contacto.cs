@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PrimerForm
 {
-    internal class Contacto
+    public class Contacto
     {
         private Int32 _id;
         private String _name;

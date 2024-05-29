@@ -37,6 +37,8 @@
             ColPhone = new DataGridViewTextBoxColumn();
             bindingSource1 = new BindingSource(components);
             btnNuevo = new Button();
+            btnGuardar = new Button();
+            saveDialog = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -114,11 +116,29 @@
             btnNuevo.UseVisualStyleBackColor = true;
             btnNuevo.Click += btnNuevo_Click;
             // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnGuardar.Location = new Point(793, 18);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(150, 46);
+            btnGuardar.TabIndex = 3;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // saveDialog
+            // 
+            saveDialog.DefaultExt = "xml";
+            saveDialog.FileName = "contactos";
+            saveDialog.Filter = "Archivos XML (*.xml)|*.xml";
+            // 
             // FrmContactos
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1132, 894);
+            Controls.Add(btnGuardar);
             Controls.Add(btnNuevo);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
@@ -140,5 +160,7 @@
         private DataGridViewTextBoxColumn ColEmail;
         private DataGridViewTextBoxColumn ColPhone;
         private Button btnNuevo;
+        private Button btnGuardar;
+        private SaveFileDialog saveDialog;
     }
 }
