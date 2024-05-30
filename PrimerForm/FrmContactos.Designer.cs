@@ -39,6 +39,8 @@
             btnNuevo = new Button();
             btnGuardar = new Button();
             saveDialog = new SaveFileDialog();
+            btnAbrir = new Button();
+            openDialog = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -62,12 +64,14 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColId, ColName, ColEmail, ColPhone });
             dataGridView1.DataSource = bindingSource1;
             dataGridView1.Location = new Point(47, 80);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1040, 696);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellDoubleClick += dataGridView1_DoubleClick;
             // 
             // ColId
             // 
@@ -133,11 +137,29 @@
             saveDialog.FileName = "contactos";
             saveDialog.Filter = "Archivos XML (*.xml)|*.xml";
             // 
+            // btnAbrir
+            // 
+            btnAbrir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAbrir.Location = new Point(949, 18);
+            btnAbrir.Name = "btnAbrir";
+            btnAbrir.Size = new Size(150, 46);
+            btnAbrir.TabIndex = 4;
+            btnAbrir.Text = "Abrir";
+            btnAbrir.UseVisualStyleBackColor = true;
+            btnAbrir.Click += btnAbrir_Click;
+            // 
+            // openDialog
+            // 
+            openDialog.DefaultExt = "xml";
+            openDialog.FileName = "contactos";
+            openDialog.Filter = "Archivos Xml (*.xml) | *.xml";
+            // 
             // FrmContactos
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1132, 894);
+            Controls.Add(btnAbrir);
             Controls.Add(btnGuardar);
             Controls.Add(btnNuevo);
             Controls.Add(dataGridView1);
@@ -162,5 +184,7 @@
         private Button btnNuevo;
         private Button btnGuardar;
         private SaveFileDialog saveDialog;
+        private Button btnAbrir;
+        private OpenFileDialog openDialog;
     }
 }

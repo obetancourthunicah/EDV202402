@@ -48,14 +48,40 @@ namespace PrimerForm
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (saveDialog.ShowDialog() == DialogResult.OK) {
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
                 XmlSerializer serializador = new XmlSerializer(
-                    typeof ( List<Contacto> )
+                    typeof(List<Contacto>)
                 );
                 string archivoAGuardar = saveDialog.FileName;
                 StreamWriter generadorDelArchivo = new StreamWriter(archivoAGuardar);
                 serializador.Serialize(generadorDelArchivo, contactos);
                 MessageBox.Show("Archivo Guardado Exitosamente!!!");
+            }
+        }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string archivoALeer = openDialog.FileName;
+                XmlSerializer serializador = new XmlSerializer(
+                   typeof(List<Contacto>)
+                );
+                StreamReader lectoraDeArchivo = new StreamReader(archivoALeer);
+                List<Contacto> tmpContactos = (List<Contacto>)serializador.Deserialize(lectoraDeArchivo) ?? new List<Contacto>();
+                contactos = tmpContactos;
+                bindingSource1.DataSource = contactos;
+                MessageBox.Show("Archivo Cargado Exitosamente");
+            }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Contacto selectedContact = (Contacto) dataGridView1.SelectedRows[0].DataBoundItem;
+            if (selectedContact != null)
+            {
+                MessageBox.Show(selectedContact.Name + " " + selectedContact.Created.ToString());
             }
         }
     }
