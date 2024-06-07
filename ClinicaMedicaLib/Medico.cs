@@ -14,7 +14,7 @@ namespace ClinicaMedicaLib
 
         public string Especialidad { get => _especialidad; set => _especialidad = value; }
 
-        public Medico() {
+        public Medico():base() {
             _especialidad = "";
         }
 
@@ -24,12 +24,13 @@ namespace ClinicaMedicaLib
             string correo,
             string telefono,
             string especialidad
-            ) {
-            Id = id;
-            Nombre = nombre;
-            Correo = correo;
-            Telefono = telefono;
-            Especialidad = especialidad;
+            ): base(id, nombre, correo, telefono) { 
+
+            _especialidad = id;
+        }
+
+        public string obtenerPerfil() {
+            return "Nombre: " + Nombre + " Especialidad: " + Especialidad + " Id: " + Id;
         }
     }
 }
