@@ -1,6 +1,6 @@
 ﻿namespace ClinicaMedicaLib
 {
-    public class Personas
+    public class Persona
     {
         private string _id;
         private string _nombre;
@@ -14,7 +14,7 @@
         public string Telefono { get => _telefono; set => _telefono = value; }
         public string Avatar { get => _avatar; set => _avatar = value; }
 
-        public Personas() { 
+        public Persona() { 
             _id ="";
             _nombre = "";
             _correo = "";
@@ -22,7 +22,7 @@
             _avatar = "";
         }
 
-        public Personas(
+        public Persona(
             string id,
             string nombre,
             string correo,

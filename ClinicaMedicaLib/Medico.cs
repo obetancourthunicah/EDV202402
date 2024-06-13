@@ -8,7 +8,7 @@ using System.Transactions;
 
 namespace ClinicaMedicaLib
 {
-    public class Medico: Personas 
+    public class Medico: Persona 
     {
         private string _especialidad;
 
