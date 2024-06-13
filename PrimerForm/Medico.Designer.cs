@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblTexto = new Label();
             saveDialog = new SaveFileDialog();
             btnExportar = new Button();
+            dataGridView1 = new DataGridView();
+            bindingSource1 = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // lblTexto
@@ -58,15 +63,27 @@
             btnExportar.UseVisualStyleBackColor = true;
             btnExportar.Click += btnExportar_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(51, 150);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.Size = new Size(702, 300);
+            dataGridView1.TabIndex = 2;
+            // 
             // Medico
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 490);
+            Controls.Add(dataGridView1);
             Controls.Add(btnExportar);
             Controls.Add(lblTexto);
             Name = "Medico";
             Text = "Medico";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -76,5 +93,7 @@
         private Label lblTexto;
         private SaveFileDialog saveDialog;
         private Button btnExportar;
+        private DataGridView dataGridView1;
+        private BindingSource bindingSource1;
     }
 }

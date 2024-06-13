@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimerForm", "PrimerForm\PrimerForm.csproj", "{7B581CF6-CFB5-49E4-A422-59E0050911EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicaMedica", "PrimerForm\ClinicaMedica.csproj", "{7B581CF6-CFB5-49E4-A422-59E0050911EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicaMedicaLib", "ClinicaMedicaLib\ClinicaMedicaLib.csproj", "{B82A1F6A-27F6-4041-AEDB-3126D65EE47D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicaMedicaLib", "ClinicaMedicaLib\ClinicaMedicaLib.csproj", "{B82A1F6A-27F6-4041-AEDB-3126D65EE47D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicasMedicasDao", "CLinicasMedicasDao\ClinicasMedicasDao.csproj", "{D6EEA55C-15B6-447F-A325-BC810E13E810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B82A1F6A-27F6-4041-AEDB-3126D65EE47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B82A1F6A-27F6-4041-AEDB-3126D65EE47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B82A1F6A-27F6-4041-AEDB-3126D65EE47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6EEA55C-15B6-447F-A325-BC810E13E810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6EEA55C-15B6-447F-A325-BC810E13E810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6EEA55C-15B6-447F-A325-BC810E13E810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6EEA55C-15B6-447F-A325-BC810E13E810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

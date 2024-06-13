@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaMedicaLib;
+using ClinicasMedicasDao;
 
 namespace PrimerForm
 {
@@ -16,6 +17,7 @@ namespace PrimerForm
         private ClinicaMedicaLib.Medico Medico1;
         private ClinicaMedicaLib.Medico Medico2;
         public List<ClinicaMedicaLib.Medico> Medicos;
+
         public Medico()
         {
             InitializeComponent();
