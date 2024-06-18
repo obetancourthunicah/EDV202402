@@ -1,3 +1,5 @@
+using ClinicaMedica;
+
 namespace PrimerForm
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace PrimerForm
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmGeneradorDeCuenta());
-            Application.Run(new Medico());
+            Application.Run(new FrmClinicas());
         }
     }
 }

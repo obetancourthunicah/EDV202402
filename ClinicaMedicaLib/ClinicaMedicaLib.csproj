@@ -10,4 +10,8 @@
     <PackageReference Include="ClosedXML" Version="0.102.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CLinicasMedicasDao\ClinicasMedicasDao.csproj" />
+  </ItemGroup>
+
 </Project>
