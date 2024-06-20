@@ -22,8 +22,46 @@ namespace ClinicaMedica
             Modo = EModoFormulario.Nuevo;
         }
 
-        public Clinica Clinica { get => _clinica; set => _clinica = value; }
-        public EModoFormulario Modo { get => _modo; set => _modo = value; }
+        public Clinica Clinica
+        {
+            get => _clinica;
+            set { 
+                _clinica = value;
+                if (_clinica.Codigo != 0)
+                {
+                    txtCodigo.Text = _clinica.Codigo.ToString();
+                    txtNombre.Text = _clinica.Nombre;
+                    txtDireccion.Text = _clinica.Direccion;
+                    txtTelefono.Text = _clinica.Telefono;
+                    cmbEstado.Text = _clinica.Estado == "ACT" ? "Activo" : "Inactivo";
+                    txtCodigo.ReadOnly = true;
+                }
+            }
+        }
+        public EModoFormulario Modo
+        {
+            get => _modo; 
+            set {
+                switch (value)
+                {
+                    case EModoFormulario.Modificar:
+                    case EModoFormulario.Eliminar:
+                    case EModoFormulario.Consultar:
+                        if (_clinica.Codigo != 0) {
+                            txtCodigo.Text = _clinica.Codigo.ToString();
+                            txtNombre.Text = _clinica.Nombre;
+                            txtDireccion.Text = _clinica.Direccion;
+                            txtTelefono.Text = _clinica.Telefono;
+                            cmbEstado.Text = _clinica.Estado == "ACT" ? "Activo" : "Inactivo";
+                            txtCodigo.ReadOnly = true;
+                        }
+                        break;
+                    case EModoFormulario.Nuevo:
+                        break;
+                }
+                _modo = value;
+            }
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -38,7 +76,7 @@ namespace ClinicaMedica
                 txtNombre.Text,
                 txtDireccion.Text,
                 txtTelefono.Text,
-                cmbEstado.SelectedText == "Activa" ? "ACT" : "INA"
+                cmbEstado.Text == "Activo" ? "ACT" : "INA"
             );
             this.DialogResult = DialogResult.OK;
             this.Close();

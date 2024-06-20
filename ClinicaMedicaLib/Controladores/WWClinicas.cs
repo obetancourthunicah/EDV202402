@@ -26,7 +26,41 @@ namespace ClinicaMedicaLib.Controladores
             return _clinicas;
         }
 
+        public Boolean agregarClinica(Clinica clinica) {
+            try {
+                _adapter.Insert(clinica.Codigo,clinica.Nombre, clinica.Direccion, clinica.Telefono, clinica.Estado);
+                _adapter.Fill(_clinicalDataSet.Clinicas);
+                this.FillClinicas();
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+        }
 
+        public Boolean editarClinica(Clinica clinica, Clinica originaClinica)
+        {
+            try
+            {
+                _adapter.Update(
+                    clinica.Nombre,
+                    clinica.Direccion,
+                    clinica.Telefono,
+                    clinica.Estado,
+                    originaClinica.Codigo,
+                    originaClinica.Nombre,
+                    originaClinica.Direccion,
+                    originaClinica.Telefono,
+                    originaClinica.Estado
+                );
+                _adapter.Fill(_clinicalDataSet.Clinicas);
+                this.FillClinicas();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
         private void FillClinicas() {
             _clinicas.Clear();

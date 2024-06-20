@@ -43,9 +43,19 @@ namespace ClinicaMedica
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (_clinicaSeleccionada != null)
-            {
-                MessageBox.Show("Editando " + _clinicaSeleccionada.Nombre);
+            if ( _clinicaSeleccionada != null) { 
+                FrmClinica editarForm = new FrmClinica();
+                editarForm.Modo = EModoFormulario.Modificar;
+                editarForm.Clinica = _clinicaSeleccionada;
+                if (editarForm.ShowDialog() == DialogResult.OK)
+                {
+                    Boolean clinicaModificada = _wwClinicas.editarClinica(editarForm.Clinica, _clinicaSeleccionada);
+                    if (clinicaModificada)
+                    {
+                        _clinicas = _wwClinicas.obtenerClinicas();
+                        bindingClinicas.ResetBindings(false);
+                    }
+                }
             }
         }
 
@@ -59,7 +69,18 @@ namespace ClinicaMedica
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Creando nueva clinica");
+            FrmClinica nuevaClinica = new FrmClinica();
+            nuevaClinica.Modo = EModoFormulario.Nuevo;
+            if (nuevaClinica.ShowDialog() == DialogResult.OK)
+            {
+                Boolean clinicaAgregada =  _wwClinicas.agregarClinica(nuevaClinica.Clinica);
+                if (clinicaAgregada) {
+                    _clinicas = _wwClinicas.obtenerClinicas();
+                    bindingClinicas.ResetBindings(false);
+                }   
+            }
+            nuevaClinica.Dispose();
+            nuevaClinica = null;
         }
     }
 }
