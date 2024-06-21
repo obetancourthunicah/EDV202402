@@ -37,7 +37,12 @@ namespace ClinicaMedica
         {
             if (_clinicaSeleccionada != null)
             {
-                MessageBox.Show("Detalle de " + _clinicaSeleccionada.Nombre);
+                FrmClinica mostrarForm = new FrmClinica();
+                mostrarForm.Modo = EModoFormulario.Consultar;
+                mostrarForm.Clinica = _clinicaSeleccionada;
+                mostrarForm.ShowDialog();
+                mostrarForm.Dispose();
+                mostrarForm = null;
             }
         }
 
@@ -63,7 +68,18 @@ namespace ClinicaMedica
         {
             if (_clinicaSeleccionada != null)
             {
-                MessageBox.Show("Eliminado " + _clinicaSeleccionada.Nombre);
+                FrmClinica eliminarForm = new FrmClinica();
+                eliminarForm.Modo = EModoFormulario.Eliminar;
+                eliminarForm.Clinica = _clinicaSeleccionada;
+                if (eliminarForm.ShowDialog() == DialogResult.OK)
+                {
+                    Boolean clinicaEliminada = _wwClinicas.eliminarClinica(eliminarForm.Clinica);
+                    if (clinicaEliminada)
+                    {
+                        _clinicas = _wwClinicas.obtenerClinicas();
+                        bindingClinicas.ResetBindings(false);
+                    }
+                }
             }
         }
 

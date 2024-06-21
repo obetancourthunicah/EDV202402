@@ -40,12 +40,13 @@
             cmbEstado = new ComboBox();
             btnConfirmar = new Button();
             btnCancelar = new Button();
+            tituloFormulario = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(81, 74);
+            label1.Location = new Point(71, 166);
             label1.Name = "label1";
             label1.Size = new Size(91, 32);
             label1.TabIndex = 0;
@@ -54,7 +55,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(89, 140);
+            label2.Location = new Point(71, 235);
             label2.Name = "label2";
             label2.Size = new Size(102, 32);
             label2.TabIndex = 1;
@@ -63,7 +64,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(85, 208);
+            label3.Location = new Point(71, 304);
             label3.Name = "label3";
             label3.Size = new Size(114, 32);
             label3.TabIndex = 2;
@@ -72,7 +73,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(81, 278);
+            label4.Location = new Point(71, 373);
             label4.Name = "label4";
             label4.Size = new Size(107, 32);
             label4.TabIndex = 3;
@@ -81,7 +82,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(89, 350);
+            label5.Location = new Point(71, 442);
             label5.Name = "label5";
             label5.Size = new Size(84, 32);
             label5.TabIndex = 4;
@@ -89,44 +90,44 @@
             // 
             // txtCodigo
             // 
-            txtCodigo.Location = new Point(265, 76);
+            txtCodigo.Location = new Point(233, 163);
             txtCodigo.Name = "txtCodigo";
-            txtCodigo.Size = new Size(200, 39);
+            txtCodigo.Size = new Size(508, 39);
             txtCodigo.TabIndex = 5;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(263, 144);
+            txtNombre.Location = new Point(233, 232);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(200, 39);
+            txtNombre.Size = new Size(508, 39);
             txtNombre.TabIndex = 6;
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(261, 210);
+            txtDireccion.Location = new Point(233, 301);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(200, 39);
+            txtDireccion.Size = new Size(508, 39);
             txtDireccion.TabIndex = 7;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(257, 280);
+            txtTelefono.Location = new Point(233, 370);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(200, 39);
+            txtTelefono.Size = new Size(508, 39);
             txtTelefono.TabIndex = 8;
             // 
             // cmbEstado
             // 
             cmbEstado.FormattingEnabled = true;
             cmbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cmbEstado.Location = new Point(253, 352);
+            cmbEstado.Location = new Point(233, 439);
             cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(242, 40);
+            cmbEstado.Size = new Size(508, 40);
             cmbEstado.TabIndex = 9;
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(441, 532);
+            btnConfirmar.Location = new Point(423, 516);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(150, 46);
             btnConfirmar.TabIndex = 10;
@@ -136,7 +137,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(609, 536);
+            btnCancelar.Location = new Point(591, 516);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(150, 46);
             btnCancelar.TabIndex = 11;
@@ -144,11 +145,22 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // tituloFormulario
+            // 
+            tituloFormulario.AutoSize = true;
+            tituloFormulario.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            tituloFormulario.Location = new Point(71, 58);
+            tituloFormulario.Name = "tituloFormulario";
+            tituloFormulario.Size = new Size(368, 51);
+            tituloFormulario.TabIndex = 12;
+            tituloFormulario.Text = "Trabajar con Clinica";
+            // 
             // FrmClinica
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 632);
+            Controls.Add(tituloFormulario);
             Controls.Add(btnCancelar);
             Controls.Add(btnConfirmar);
             Controls.Add(cmbEstado);
@@ -181,5 +193,6 @@
         private ComboBox cmbEstado;
         private Button btnConfirmar;
         private Button btnCancelar;
+        private Label tituloFormulario;
     }
 }

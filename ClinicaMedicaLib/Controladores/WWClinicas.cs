@@ -62,6 +62,24 @@ namespace ClinicaMedicaLib.Controladores
             }
         }
 
+        public Boolean eliminarClinica(Clinica clinica) {
+            try
+            {
+                _adapter.Delete(
+                    clinica.Codigo,
+                    clinica.Nombre,
+                    clinica.Direccion,
+                    clinica.Telefono,
+                    clinica.Estado
+                 );
+                _adapter.Fill(_clinicalDataSet.Clinicas);
+                this.FillClinicas();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+            }
+        }
         private void FillClinicas() {
             _clinicas.Clear();
             foreach (ClinicaMedicaDataSet.ClinicasRow clinica in _clinicalDataSet.Clinicas.Rows) {

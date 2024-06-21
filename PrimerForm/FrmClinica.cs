@@ -22,20 +22,66 @@ namespace ClinicaMedica
             Modo = EModoFormulario.Nuevo;
         }
 
+        private void setClientToControls() {
+            if (_clinica.Codigo != 0)
+            {
+                txtCodigo.Text = _clinica.Codigo.ToString();
+                txtNombre.Text = _clinica.Nombre;
+                txtDireccion.Text = _clinica.Direccion;
+                txtTelefono.Text = _clinica.Telefono;
+                cmbEstado.Text = _clinica.Estado == "ACT" ? "Activo" : "Inactivo";
+                txtCodigo.ReadOnly = true;
+                setReadOnly();
+                establecerTitulo();
+            }
+        }
+
+        private void establecerTitulo() {
+            if (_modo == EModoFormulario.Nuevo)
+            {
+                tituloFormulario.Text = "Ingresando Nueva Clinica";
+                Text = "Ingresando Nueva Clinica";
+            }
+            if (_clinica.Codigo > 0)
+            {
+                switch (_modo)
+                {
+                    case EModoFormulario.Modificar:
+                        tituloFormulario.Text = "Modificando Clinica" ;
+                        Text = "Modificando Clinica";
+                        break;
+                    case EModoFormulario.Eliminar:
+                        tituloFormulario.Text = "Eliminando Clinica";
+                        Text = "Eliminando Clinica";
+                        break;
+                    case EModoFormulario.Consultar:
+                        tituloFormulario.Text = "Detalle de Clinica";
+                        Text = "Detalle de Clinica";
+                        break;
+                }
+            }
+
+        }
+        private void setReadOnly() {
+            if (_modo == EModoFormulario.Consultar || _modo == EModoFormulario.Eliminar)
+            {
+                txtNombre.ReadOnly = true;
+                txtDireccion.ReadOnly = true;
+                txtTelefono.ReadOnly = true;
+                cmbEstado.Enabled = false;
+                if(_modo == EModoFormulario.Consultar)
+                {
+                    btnConfirmar.Visible = false;
+                }
+            }
+        }
+
         public Clinica Clinica
         {
             get => _clinica;
             set { 
                 _clinica = value;
-                if (_clinica.Codigo != 0)
-                {
-                    txtCodigo.Text = _clinica.Codigo.ToString();
-                    txtNombre.Text = _clinica.Nombre;
-                    txtDireccion.Text = _clinica.Direccion;
-                    txtTelefono.Text = _clinica.Telefono;
-                    cmbEstado.Text = _clinica.Estado == "ACT" ? "Activo" : "Inactivo";
-                    txtCodigo.ReadOnly = true;
-                }
+                setClientToControls();
             }
         }
         public EModoFormulario Modo
@@ -47,14 +93,7 @@ namespace ClinicaMedica
                     case EModoFormulario.Modificar:
                     case EModoFormulario.Eliminar:
                     case EModoFormulario.Consultar:
-                        if (_clinica.Codigo != 0) {
-                            txtCodigo.Text = _clinica.Codigo.ToString();
-                            txtNombre.Text = _clinica.Nombre;
-                            txtDireccion.Text = _clinica.Direccion;
-                            txtTelefono.Text = _clinica.Telefono;
-                            cmbEstado.Text = _clinica.Estado == "ACT" ? "Activo" : "Inactivo";
-                            txtCodigo.ReadOnly = true;
-                        }
+                        setClientToControls();
                         break;
                     case EModoFormulario.Nuevo:
                         break;
