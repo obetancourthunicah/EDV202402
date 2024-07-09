@@ -13,7 +13,8 @@ namespace ClinicasMedicasDao.Web
         public static async Task<string> get(string url) {
             try
             {
-                HttpResponseMessage result = await httpClient.GetAsync(new Uri(url));
+                using HttpResponseMessage result = await httpClient.GetAsync(url);
+                result.EnsureSuccessStatusCode();
                 if (result.IsSuccessStatusCode)
                 {
                     return await result.Content.ReadAsStringAsync();
