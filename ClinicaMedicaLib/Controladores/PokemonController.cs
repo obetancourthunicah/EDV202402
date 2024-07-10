@@ -27,5 +27,16 @@ namespace ClinicaMedicaLib.Controladores
             }
             throw new Exception("Error al conectar al API");
         }
+
+        public static async Task<PokemonDetail> GetPokemon( string url)
+        {
+            JSONAdapter<PokemonDetail> _JSONAdapter = new JSONAdapter<PokemonDetail>();
+            string response = await WebContext.get(url);
+            if (response != "error")
+            {
+                return _JSONAdapter.FromString(response);
+            }
+            throw new Exception("Error al conectar al API");
+        }
     }
 }

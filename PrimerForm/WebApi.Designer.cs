@@ -32,7 +32,8 @@
             btnGetList = new Button();
             btnNext = new Button();
             btnPrevious = new Button();
-            SuspendLayout();
+            btnGetOnePokemon = new Button();
+            this.SuspendLayout();
             // 
             // lblResult
             // 
@@ -66,6 +67,7 @@
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Visible = false;
+            btnNext.Click += btnNext_Click;
             // 
             // btnPrevious
             // 
@@ -77,19 +79,32 @@
             btnPrevious.Text = "Previous";
             btnPrevious.UseVisualStyleBackColor = true;
             btnPrevious.Visible = false;
+            btnPrevious.Click += btnPrevious_Click;
+            // 
+            // btnGetOnePokemon
+            // 
+            btnGetOnePokemon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnGetOnePokemon.Location = new Point(29, 852);
+            btnGetOnePokemon.Name = "btnGetOnePokemon";
+            btnGetOnePokemon.Size = new Size(150, 46);
+            btnGetOnePokemon.TabIndex = 4;
+            btnGetOnePokemon.Text = "Pok 1";
+            btnGetOnePokemon.UseVisualStyleBackColor = true;
+            btnGetOnePokemon.Click += btnGetOnePokemon_Click;
             // 
             // WebApi
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1226, 910);
-            Controls.Add(btnPrevious);
-            Controls.Add(btnNext);
-            Controls.Add(btnGetList);
-            Controls.Add(lblResult);
-            Name = "WebApi";
-            Text = "WebApi";
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new SizeF(13F, 32F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(1226, 910);
+            this.Controls.Add(btnGetOnePokemon);
+            this.Controls.Add(btnPrevious);
+            this.Controls.Add(btnNext);
+            this.Controls.Add(btnGetList);
+            this.Controls.Add(lblResult);
+            this.Name = "WebApi";
+            this.Text = "WebApi";
+            this.ResumeLayout(false);
         }
 
         #endregion
@@ -98,5 +113,6 @@
         private Button btnGetList;
         private Button btnNext;
         private Button btnPrevious;
+        private Button btnGetOnePokemon;
     }
 }
