@@ -2459,8 +2459,8 @@ SELECT Identidad, Especialidad, Estado FROM Medicos WHERE (Identidad = @Identida
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.20;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
-                "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
+            this._connection.ConnectionString = "Data Source=192.168.1.16;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+                "r ID=sa; Password=Sa1234567.8; TrustServerCertificate=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2835,8 +2835,8 @@ SELECT Identidad, Nombre, Telefono, Correo, FchCreacion FROM Personas WHERE (Ide
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.20;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
-                "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
+            this._connection.ConnectionString = "Data Source=192.168.1.16;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+                "r ID=sa; Password=Sa1234567.8; TrustServerCertificate=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3224,8 +3224,8 @@ SELECT Identidad, Nombre, Telefono, Correo, FchCreacion FROM Personas WHERE (Ide
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.20;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
-                "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
+            this._connection.ConnectionString = "Data Source=192.168.1.16;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+                "r ID=sa; Password=Sa1234567.8; TrustServerCertificate=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3436,8 +3436,8 @@ SELECT Id, Nombre, Direccion, Telefono, Estado FROM Clinicas WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.20;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
-                "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
+            this._connection.ConnectionString = "Data Source=192.168.1.16;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+                "r ID=sa; Password=Sa1234567.8; TrustServerCertificate=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

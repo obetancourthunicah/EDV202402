@@ -14,7 +14,7 @@ namespace PrimerForm
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmGeneradorDeCuenta());
-            Application.Run(new WebApi());
+            Application.Run(new Main());
         }
     }
 }
