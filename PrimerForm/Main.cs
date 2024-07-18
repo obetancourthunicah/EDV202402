@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicaMedicaLib.Controladores.Seguridad;
+using ClinicaMedica.Seguridad;
 
 namespace ClinicaMedica
 {
@@ -16,6 +17,7 @@ namespace ClinicaMedica
     {
         private int childFormNumber = 0;
         private Usuarios usuarios = new Usuarios();
+        private bool isLogged = false;
         public Main()
         {
             InitializeComponent();
@@ -109,6 +111,16 @@ namespace ClinicaMedica
         private void Main_Load(object sender, EventArgs e)
         {
             usuarios.VerificarSeguridad();
+
+            if(!isLogged)
+            {
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.ShowDialog();
+                if(frmLogin.UsuarioSesion != null && frmLogin.DialogResult == DialogResult.OK)
+                {
+                    isLogged = true;
+                }
+            }
         }
 
         private void menuOpcClinicas_Click(object sender, EventArgs e)

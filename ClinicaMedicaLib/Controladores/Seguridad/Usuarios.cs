@@ -152,5 +152,35 @@ namespace ClinicaMedicaLib.Controladores.Seguridad
                 
             }
         }
+
+        public Usuario? Login(string user, string password)
+        {
+            Usuario? usuario = GetUsuario(user);
+            if (usuario != null)
+            {
+                if (PasswordUtility.comparePassword(password, usuario.PasswordHash, Convert.FromHexString(usuario.PasswordSalt)))
+                {
+                    return usuario;
+                }
+            }
+            return null;
+        }
+
+        public bool IsAuthorized(int userId, string verificacion)
+        {
+            Verificacion? veriExiste = verificacionesController.ObtenerVerificacion(verificacion);
+            if (veriExiste == null)
+            {
+                Verificacion verNuevo = new Verificacion(verificacion, verificacion, ECommonStatus.ACT);
+                verificacionesController.InsertarVerificacion(verNuevo);
+                Rol rolAdmin = rolesController.ObtenerRol("admin");
+                //Agregando a Rol de Administracion todo nuevo
+                rolesController.AgregarVerificacionARol(rolAdmin, verNuevo);
+            }
+            int? estaAutorizado = usuariosTableAdapter.IsAuthorized(userId, verificacion);
+
+            return estaAutorizado.HasValue && estaAutorizado == 1;
+        }
     }
 }
+ 
