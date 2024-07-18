@@ -44,12 +44,6 @@ namespace ClinicasMedicasDao {
         
         private global::System.Data.DataRelation relationFK_Medicos_Personas;
         
-        private global::System.Data.DataRelation relationFK_RolesXUsuario_ToRoles;
-        
-        private global::System.Data.DataRelation relationFK_RolesXUsuario_ToUsuarios;
-        
-        private global::System.Data.DataRelation relationFK_VerificacionesXRol_Roles;
-        
         private global::System.Data.DataRelation relationFK_VerificacionesXRol_Verificaciones;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -397,9 +391,6 @@ namespace ClinicasMedicasDao {
                 }
             }
             this.relationFK_Medicos_Personas = this.Relations["FK_Medicos_Personas"];
-            this.relationFK_RolesXUsuario_ToRoles = this.Relations["FK_RolesXUsuario_ToRoles"];
-            this.relationFK_RolesXUsuario_ToUsuarios = this.Relations["FK_RolesXUsuario_ToUsuarios"];
-            this.relationFK_VerificacionesXRol_Roles = this.Relations["FK_VerificacionesXRol_Roles"];
             this.relationFK_VerificacionesXRol_Verificaciones = this.Relations["FK_VerificacionesXRol_Verificaciones"];
         }
         
@@ -409,7 +400,7 @@ namespace ClinicasMedicasDao {
             this.DataSetName = "ClinicaMedicaDataSet";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/ClinicaMedicaDataSet.xsd";
-            this.EnforceConstraints = true;
+            this.EnforceConstraints = false;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableMedicos = new MedicosDataTable();
             base.Tables.Add(this.tableMedicos);
@@ -433,18 +424,6 @@ namespace ClinicasMedicasDao {
                         this.tablePersonas.IdentidadColumn}, new global::System.Data.DataColumn[] {
                         this.tableMedicos.IdentidadColumn}, false);
             this.Relations.Add(this.relationFK_Medicos_Personas);
-            this.relationFK_RolesXUsuario_ToRoles = new global::System.Data.DataRelation("FK_RolesXUsuario_ToRoles", new global::System.Data.DataColumn[] {
-                        this.tableRoles.rolColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRolesXUsuario.rolColumn}, false);
-            this.Relations.Add(this.relationFK_RolesXUsuario_ToRoles);
-            this.relationFK_RolesXUsuario_ToUsuarios = new global::System.Data.DataRelation("FK_RolesXUsuario_ToUsuarios", new global::System.Data.DataColumn[] {
-                        this.tableUsuarios.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRolesXUsuario.userIdColumn}, false);
-            this.Relations.Add(this.relationFK_RolesXUsuario_ToUsuarios);
-            this.relationFK_VerificacionesXRol_Roles = new global::System.Data.DataRelation("FK_VerificacionesXRol_Roles", new global::System.Data.DataColumn[] {
-                        this.tableRoles.rolColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVerificacionesXRol.rolColumn}, false);
-            this.Relations.Add(this.relationFK_VerificacionesXRol_Roles);
             this.relationFK_VerificacionesXRol_Verificaciones = new global::System.Data.DataRelation("FK_VerificacionesXRol_Verificaciones", new global::System.Data.DataColumn[] {
                         this.tableVerificaciones.verificacionColumn}, new global::System.Data.DataColumn[] {
                         this.tableVerificacionesXRol.verificacionColumn}, false);
@@ -2567,10 +2546,10 @@ namespace ClinicasMedicasDao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsuariosRow AddUsuariosRow(string user, string password, System.DateTime passwordFchExp, string name, string status) {
+            public UsuariosRow AddUsuariosRow(int Id, string user, string password, System.DateTime passwordFchExp, string name, string status) {
                 UsuariosRow rowUsuariosRow = ((UsuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        Id,
                         user,
                         password,
                         passwordFchExp,
@@ -2630,16 +2609,14 @@ namespace ClinicasMedicasDao {
                 base.Columns.Add(this.columnstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
-                this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnuser.AllowDBNull = false;
+                this.columnuser.DefaultValue = ((string)(""));
                 this.columnuser.MaxLength = 50;
                 this.columnpassword.AllowDBNull = false;
-                this.columnpassword.MaxLength = 255;
+                this.columnpassword.MaxLength = 256;
                 this.columnpasswordFchExp.AllowDBNull = false;
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 255;
@@ -2888,19 +2865,13 @@ namespace ClinicasMedicasDao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RolesXUsuarioRow AddRolesXUsuarioRow(UsuariosRow parentUsuariosRowByFK_RolesXUsuario_ToUsuarios, RolesRow parentRolesRowByFK_RolesXUsuario_ToRoles, System.DateTime fechaExp, string status) {
+            public RolesXUsuarioRow AddRolesXUsuarioRow(int userId, string rol, System.DateTime fechaExp, string status) {
                 RolesXUsuarioRow rowRolesXUsuarioRow = ((RolesXUsuarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        null,
+                        userId,
+                        rol,
                         fechaExp,
                         status};
-                if ((parentUsuariosRowByFK_RolesXUsuario_ToUsuarios != null)) {
-                    columnValuesArray[0] = parentUsuariosRowByFK_RolesXUsuario_ToUsuarios[0];
-                }
-                if ((parentRolesRowByFK_RolesXUsuario_ToRoles != null)) {
-                    columnValuesArray[1] = parentRolesRowByFK_RolesXUsuario_ToRoles[0];
-                }
                 rowRolesXUsuarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRolesXUsuarioRow);
                 return rowRolesXUsuarioRow;
@@ -3200,16 +3171,13 @@ namespace ClinicasMedicasDao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VerificacionesXRolRow AddVerificacionesXRolRow(RolesRow parentRolesRowByFK_VerificacionesXRol_Roles, VerificacionesRow parentVerificacionesRowByFK_VerificacionesXRol_Verificaciones, System.DateTime fechaExp, string status) {
+            public VerificacionesXRolRow AddVerificacionesXRolRow(string rol, VerificacionesRow parentVerificacionesRowByFK_VerificacionesXRol_Verificaciones, System.DateTime fechaExp, string status) {
                 VerificacionesXRolRow rowVerificacionesXRolRow = ((VerificacionesXRolRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        rol,
                         null,
                         fechaExp,
                         status};
-                if ((parentRolesRowByFK_VerificacionesXRol_Roles != null)) {
-                    columnValuesArray[0] = parentRolesRowByFK_VerificacionesXRol_Roles[0];
-                }
                 if ((parentVerificacionesRowByFK_VerificacionesXRol_Verificaciones != null)) {
                     columnValuesArray[1] = parentVerificacionesRowByFK_VerificacionesXRol_Verificaciones[0];
                 }
@@ -4013,28 +3981,6 @@ namespace ClinicasMedicasDao {
                     this[this.tableRoles.statusColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RolesXUsuarioRow[] GetRolesXUsuarioRows() {
-                if ((this.Table.ChildRelations["FK_RolesXUsuario_ToRoles"] == null)) {
-                    return new RolesXUsuarioRow[0];
-                }
-                else {
-                    return ((RolesXUsuarioRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RolesXUsuario_ToRoles"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VerificacionesXRolRow[] GetVerificacionesXRolRows() {
-                if ((this.Table.ChildRelations["FK_VerificacionesXRol_Roles"] == null)) {
-                    return new VerificacionesXRolRow[0];
-                }
-                else {
-                    return ((VerificacionesXRolRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VerificacionesXRol_Roles"])));
-                }
-            }
         }
         
         /// <summary>
@@ -4066,7 +4012,12 @@ namespace ClinicasMedicasDao {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string user {
                 get {
-                    return ((string)(this[this.tableUsuarios.userColumn]));
+                    try {
+                        return ((string)(this[this.tableUsuarios.userColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'user\' de la tabla \'Usuarios\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableUsuarios.userColumn] = value;
@@ -4119,13 +4070,14 @@ namespace ClinicasMedicasDao {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RolesXUsuarioRow[] GetRolesXUsuarioRows() {
-                if ((this.Table.ChildRelations["FK_RolesXUsuario_ToUsuarios"] == null)) {
-                    return new RolesXUsuarioRow[0];
-                }
-                else {
-                    return ((RolesXUsuarioRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RolesXUsuario_ToUsuarios"])));
-                }
+            public bool IsuserNull() {
+                return this.IsNull(this.tableUsuarios.userColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetuserNull() {
+                this[this.tableUsuarios.userColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4186,28 +4138,6 @@ namespace ClinicasMedicasDao {
                     this[this.tableRolesXUsuario.statusColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RolesRow RolesRow {
-                get {
-                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["FK_RolesXUsuario_ToRoles"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RolesXUsuario_ToRoles"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsuariosRow UsuariosRow {
-                get {
-                    return ((UsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_RolesXUsuario_ToUsuarios"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RolesXUsuario_ToUsuarios"]);
-                }
-            }
         }
         
         /// <summary>
@@ -4265,17 +4195,6 @@ namespace ClinicasMedicasDao {
                 }
                 set {
                     this[this.tableVerificacionesXRol.statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RolesRow RolesRow {
-                get {
-                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["FK_VerificacionesXRol_Roles"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_VerificacionesXRol_Roles"]);
                 }
             }
             
@@ -6153,32 +6072,36 @@ SELECT verificacion, name, status FROM Verificaciones WHERE (verificacion = @ver
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT verificacion, name, status FROM dbo.Verificaciones";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT verificacion, name, status FROM dbo.Verificaciones where verificacion = @v" +
-                "erificacion;";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) FROM Verificaciones";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT Verificaciones.verificacion, Verificaciones.name, Verificaciones.status
-FROM  Verificaciones INNER JOIN
-         VerificacionesXRol ON Verificaciones.verificacion = VerificacionesXRol.verificacion AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.fechaExp <= GETDATE() AND VerificacionesXRol.rol = @rol";
+            this._commandCollection[2].CommandText = "SELECT verificacion, name, status FROM dbo.Verificaciones where verificacion = @v" +
+                "erificacion;";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT Verificaciones.verificacion, Verificaciones.name, Verificaciones.status
+FROM  Verificaciones INNER JOIN
+         VerificacionesXRol ON Verificaciones.verificacion = VerificacionesXRol.verificacion AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.fechaExp <= GETDATE() AND VerificacionesXRol.rol = @rol";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT Verificaciones.verificacion, Verificaciones.name, Verificaciones.status
 FROM  Verificaciones LEFT OUTER JOIN
          VerificacionesXRol ON Verificaciones.verificacion = VerificacionesXRol.verificacion AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.fechaExp <= GETDATE() AND VerificacionesXRol.rol = @rol
 WHERE (VerificacionesXRol.status = NULL)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6210,7 +6133,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy(ClinicaMedicaDataSet.VerificacionesDataTable dataTable, string verificacion) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((verificacion == null)) {
                 throw new global::System.ArgumentNullException("verificacion");
             }
@@ -6229,7 +6152,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.VerificacionesDataTable GetDataBy(string verificacion) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((verificacion == null)) {
                 throw new global::System.ArgumentNullException("verificacion");
             }
@@ -6246,7 +6169,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAssignToRol(ClinicaMedicaDataSet.VerificacionesDataTable dataTable, string rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
             }
@@ -6265,7 +6188,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.VerificacionesDataTable GetDataByAssignToRol(string rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
             }
@@ -6282,7 +6205,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByNotAssignToRol(ClinicaMedicaDataSet.VerificacionesDataTable dataTable, string rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
             }
@@ -6301,7 +6224,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.VerificacionesDataTable GetDataByNotAssignToRol(string rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
             }
@@ -6484,6 +6407,34 @@ WHERE (VerificacionesXRol.status = NULL)";
         public virtual int Update(string name, string status, string Original_verificacion, string Original_name, string Original_status) {
             return this.Update(Original_verificacion, name, status, Original_verificacion, Original_name, Original_status);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ContarVerificaciones() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
     }
     
     /// <summary>
@@ -6652,31 +6603,35 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT rol, name, status FROM dbo.Roles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT rol, name, status FROM dbo.Roles where rol = @rol";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) FROM Roles";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Roles.rol, Roles.name, Roles.status\r\nFROM  Roles INNER JOIN\r\n         Role" +
-                "sXUsuario ON Roles.rol = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE(" +
-                ") AND RolesXUsuario.status = \'ACT\' AND RolesXUsuario.userId = @id";
+            this._commandCollection[2].CommandText = "SELECT rol, name, status FROM dbo.Roles where rol = @rol";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT Roles.rol, Roles.name, Roles.status
+            this._commandCollection[3].CommandText = "SELECT Roles.rol, Roles.name, Roles.status\r\nFROM  Roles INNER JOIN\r\n         Role" +
+                "sXUsuario ON Roles.rol = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE(" +
+                ") AND RolesXUsuario.status = \'ACT\' AND RolesXUsuario.userId = @id";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT Roles.rol, Roles.name, Roles.status
 FROM  Roles LEFT OUTER JOIN
          RolesXUsuario ON Roles.rol = RolesXUsuario.rol AND RolesXUsuario.fechaExp < GETDATE() AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.userId = @id
 WHERE (RolesXUsuario.status = NULL)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6708,7 +6663,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy(ClinicaMedicaDataSet.RolesDataTable dataTable, string rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
             }
@@ -6727,7 +6682,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.RolesDataTable GetDataBy(string rol) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
             }
@@ -6744,7 +6699,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAssignToUser(ClinicaMedicaDataSet.RolesDataTable dataTable, int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6758,7 +6713,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.RolesDataTable GetDataByAssignToUser(int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             ClinicaMedicaDataSet.RolesDataTable dataTable = new ClinicaMedicaDataSet.RolesDataTable();
             this.Adapter.Fill(dataTable);
@@ -6770,7 +6725,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByNotAssignToUser(ClinicaMedicaDataSet.RolesDataTable dataTable, int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6784,7 +6739,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.RolesDataTable GetDataByNotAssignToUser(int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             ClinicaMedicaDataSet.RolesDataTable dataTable = new ClinicaMedicaDataSet.RolesDataTable();
             this.Adapter.Fill(dataTable);
@@ -6961,6 +6916,34 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string name, string status, string Original_rol, string Original_name, string Original_status) {
             return this.Update(Original_rol, name, status, Original_rol, Original_name, Original_status);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ContarRoles() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     
@@ -7146,30 +7129,34 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, [user], password, passwordFchExp, name, status FROM dbo.Usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, [user], password, passwordFchExp, name, status FROM dbo.Usuarios\r\nwher" +
-                "e [user] = @user";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) FROM Usuarios";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT TOP (1) 1 AS Authorized
+            this._commandCollection[2].CommandText = "SELECT Id, [user], password, passwordFchExp, name, status FROM dbo.Usuarios\r\nwher" +
+                "e [user] = @user";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT TOP (1) 1 AS Authorized
 FROM  Usuarios INNER JOIN
          RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp < GETDATE() AND Usuarios.Id = @id INNER JOIN
          VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp < GETDATE() AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.verificacion = @verificacion";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT SCOPE_IDENTITY();";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT @@IDENTITY AS Expr1";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7201,9 +7188,9 @@ FROM  Usuarios INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUser(ClinicaMedicaDataSet.UsuariosDataTable dataTable, string user) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((user == null)) {
-                throw new global::System.ArgumentNullException("user");
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(user));
@@ -7220,9 +7207,9 @@ FROM  Usuarios INNER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ClinicaMedicaDataSet.UsuariosDataTable GetDataByUser(string user) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((user == null)) {
-                throw new global::System.ArgumentNullException("user");
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(user));
@@ -7265,10 +7252,15 @@ FROM  Usuarios INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_user, string Original_password, System.DateTime Original_passwordFchExp, string Original_name, string Original_status) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
+        public virtual int Delete(global::System.Nullable<int> Original_Id, string Original_user, string Original_password, System.DateTime Original_passwordFchExp, string Original_name, string Original_status) {
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((Original_user == null)) {
-                throw new global::System.ArgumentNullException("Original_user");
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_user));
@@ -7314,7 +7306,7 @@ FROM  Usuarios INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(string user, string password, System.DateTime passwordFchExp, string name, string status) {
             if ((user == null)) {
-                throw new global::System.ArgumentNullException("user");
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(user));
@@ -7358,9 +7350,9 @@ FROM  Usuarios INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string user, string password, System.DateTime passwordFchExp, string name, string status, int Original_Id, string Original_user, string Original_password, System.DateTime Original_passwordFchExp, string Original_name, string Original_status, int Id) {
+        public virtual int Update(string user, string password, System.DateTime passwordFchExp, string name, string status, global::System.Nullable<int> Original_Id, string Original_user, string Original_password, System.DateTime Original_passwordFchExp, string Original_name, string Original_status, global::System.Nullable<int> Id) {
             if ((user == null)) {
-                throw new global::System.ArgumentNullException("user");
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(user));
@@ -7384,9 +7376,14 @@ FROM  Usuarios INNER JOIN
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(status));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
+            if ((Original_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             if ((Original_user == null)) {
-                throw new global::System.ArgumentNullException("Original_user");
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_user));
@@ -7410,7 +7407,12 @@ FROM  Usuarios INNER JOIN
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_status));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Id));
+            if ((Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7431,16 +7433,49 @@ FROM  Usuarios INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string user, string password, System.DateTime passwordFchExp, string name, string status, int Original_Id, string Original_user, string Original_password, System.DateTime Original_passwordFchExp, string Original_name, string Original_status) {
+        public virtual int Update(string user, string password, System.DateTime passwordFchExp, string name, string status, global::System.Nullable<int> Original_Id, string Original_user, string Original_password, System.DateTime Original_passwordFchExp, string Original_name, string Original_status) {
             return this.Update(user, password, passwordFchExp, name, status, Original_Id, Original_user, Original_password, Original_passwordFchExp, Original_name, Original_status, Original_Id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> IsAuthorized(int id, string verificacion) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            command.Parameters[0].Value = ((int)(id));
+        public virtual global::System.Nullable<int> ContarUsuarios() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> IsAuthorized(global::System.Nullable<int> id, string verificacion) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((id.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(id.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((verificacion == null)) {
                 throw new global::System.ArgumentNullException("verificacion");
             }
@@ -7474,7 +7509,7 @@ FROM  Usuarios INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<decimal> LastUserId() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8510,24 +8545,6 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._rolesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rolesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._usuariosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._usuariosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._medicosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Medicos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -8543,6 +8560,24 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._clinicasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._rolesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rolesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._usuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._usuariosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8590,22 +8625,6 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rolesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rolesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._usuariosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._usuariosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._medicosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Medicos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -8619,6 +8638,22 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._clinicasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._rolesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Roles.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rolesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._usuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._usuariosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8664,22 +8699,6 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._clinicasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Clinicas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._clinicasTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._medicosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Medicos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._medicosTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8693,6 +8712,22 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._rolesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._clinicasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Clinicas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._clinicasTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._medicosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Medicos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._medicosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

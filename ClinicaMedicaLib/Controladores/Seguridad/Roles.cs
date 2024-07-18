@@ -72,5 +72,23 @@ namespace ClinicaMedicaLib.Controladores.Seguridad
             }
             return roles;
         }
+
+        public void AgregarVerificacionARol(Rol rol, Verificacion verificacion)
+        {
+            if (rol == null)
+            {
+                throw new Exception("El rol no puede ser nulo");
+            }
+            if (verificacion == null)
+            {
+                throw new Exception("La verificacion no puede ser nula");
+            }
+            rolesVerificacionesTableAdapter.Insert(
+                rol.Codigo,
+                verificacion.Codigo,
+                DateTime.Now.AddDays(360),
+                ECommonStatus.ACT
+            );
+        }
     }
 }

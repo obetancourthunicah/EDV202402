@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicaMedicaLib.Controladores.Seguridad;
 
 namespace ClinicaMedica
 {
     public partial class Main : Form
     {
         private int childFormNumber = 0;
-
+        private Usuarios usuarios = new Usuarios();
         public Main()
         {
             InitializeComponent();
@@ -107,7 +108,7 @@ namespace ClinicaMedica
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            usuarios.VerificarSeguridad();
         }
 
         private void menuOpcClinicas_Click(object sender, EventArgs e)
