@@ -173,11 +173,11 @@ namespace ClinicaMedicaLib.Controladores.Seguridad
             {
                 Verificacion verNuevo = new Verificacion(verificacion, verificacion, ECommonStatus.ACT);
                 verificacionesController.InsertarVerificacion(verNuevo);
-                Rol rolAdmin = rolesController.ObtenerRol("admin");
+                Rol? rolAdmin = rolesController.ObtenerRol("admin");
                 //Agregando a Rol de Administracion todo nuevo
                 rolesController.AgregarVerificacionARol(rolAdmin, verNuevo);
             }
-            int? estaAutorizado = usuariosTableAdapter.IsAuthorized(userId, verificacion);
+            int? estaAutorizado = (int) usuariosTableAdapter.IsAuthorized(userId, verificacion);
 
             return estaAutorizado.HasValue && estaAutorizado == 1;
         }

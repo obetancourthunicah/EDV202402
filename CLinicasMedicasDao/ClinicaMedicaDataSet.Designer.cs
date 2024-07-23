@@ -4682,7 +4682,7 @@ SELECT Identidad, Especialidad, Estado FROM Medicos WHERE (Identidad = @Identida
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -5058,7 +5058,7 @@ SELECT Identidad, Nombre, Telefono, Correo, FchCreacion FROM Personas WHERE (Ide
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -5447,7 +5447,7 @@ SELECT Identidad, Nombre, Telefono, Correo, FchCreacion FROM Personas WHERE (Ide
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -5659,7 +5659,7 @@ SELECT Id, Nombre, Direccion, Telefono, Estado FROM Clinicas WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -6065,7 +6065,7 @@ SELECT verificacion, name, status FROM Verificaciones WHERE (verificacion = @ver
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -6151,7 +6151,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual ClinicaMedicaDataSet.VerificacionesDataTable GetDataBy(string verificacion) {
+        public virtual ClinicaMedicaDataSet.VerificacionesDataTable GetDataBy1(string verificacion) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((verificacion == null)) {
                 throw new global::System.ArgumentNullException("verificacion");
@@ -6596,7 +6596,7 @@ WHERE (VerificacionesXRol.status = NULL)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -6681,7 +6681,7 @@ WHERE (RolesXUsuario.status = NULL)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual ClinicaMedicaDataSet.RolesDataTable GetDataBy(string rol) {
+        public virtual ClinicaMedicaDataSet.RolesDataTable GetDataBy1(string rol) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((rol == null)) {
                 throw new global::System.ArgumentNullException("rol");
@@ -7122,7 +7122,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -7148,8 +7148,8 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT TOP (1) 1 AS Authorized
 FROM  Usuarios INNER JOIN
-         RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp < GETDATE() AND Usuarios.Id = @id INNER JOIN
-         VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp < GETDATE() AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.verificacion = @verificacion";
+         RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp > GETDATE() AND Usuarios.Id = @id INNER JOIN
+         VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp > GETDATE() AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.verificacion = @verificacion";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@verificacion", global::System.Data.SqlDbType.VarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "verificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7468,14 +7468,9 @@ FROM  Usuarios INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> IsAuthorized(global::System.Nullable<int> id, string verificacion) {
+        public virtual object IsAuthorized(int id, string verificacion) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
-            if ((id.HasValue == true)) {
-                command.Parameters[0].Value = ((int)(id.Value));
-            }
-            else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
+            command.Parameters[0].Value = ((int)(id));
             if ((verificacion == null)) {
                 throw new global::System.ArgumentNullException("verificacion");
             }
@@ -7498,10 +7493,10 @@ FROM  Usuarios INNER JOIN
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
+                return null;
             }
             else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
+                return ((object)(returnValue));
             }
         }
         
@@ -7699,7 +7694,7 @@ SELECT userId, rol, fechaExp, status FROM RolesXUsuario WHERE (rol = @rol) AND (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         
@@ -8058,7 +8053,7 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
+            this._connection.ConnectionString = "Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;Use" +
                 "r ID=sa;Password=Sa1234567.8;TrustServerCertificate=True";
         }
         

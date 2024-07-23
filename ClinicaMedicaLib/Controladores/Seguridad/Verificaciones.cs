@@ -47,7 +47,7 @@ namespace ClinicaMedicaLib.Controladores.Seguridad
 
         public Verificacion? ObtenerVerificacion(string codigo)
         {
-            var verificacion = verificacionesTableAdapter.GetDataBy(codigo).FirstOrDefault();
+            var verificacion = verificacionesTableAdapter.GetDataBy1(codigo).FirstOrDefault();
             if (verificacion == null) {
                 return null;
             }

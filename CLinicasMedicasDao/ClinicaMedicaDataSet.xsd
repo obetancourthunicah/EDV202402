@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=192.168.1.19;Initial Catalog=clinicaDB;Persist Security Info=True;User ID=sa;Password=Sa1234567.8;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="clinicaDBConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=192.168.1.23;Initial Catalog=clinicaDB;Persist Security Info=True;User ID=sa;Password=Sa1234567.8;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="clinicaDBConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MedicosTableAdapter" GeneratorDataComponentClassName="MedicosTableAdapter" Name="Medicos" UserDataComponentName="MedicosTableAdapter">
@@ -275,7 +275,7 @@ SELECT verificacion, name, status FROM Verificaciones WHERE (verificacion = @ver
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarVerificaciones" Modifier="Public" Name="ContarVerificaciones" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ContarVerificaciones">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarVerificaciones" Modifier="Public" Name="ContarVerificaciones" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarVerificaciones">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM Verificaciones</CommandText>
@@ -283,7 +283,7 @@ SELECT verificacion, name, status FROM Verificaciones WHERE (verificacion = @ver
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectName="clinicaDB.dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectName="clinicaDB.dbo.Verificaciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT verificacion, name, status FROM dbo.Verificaciones where verificacion = @verificacion;</CommandText>
@@ -372,7 +372,7 @@ SELECT rol, name, status FROM Roles WHERE (rol = @rol)</CommandText>
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarRoles" Modifier="Public" Name="ContarRoles" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ContarRoles">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarRoles" Modifier="Public" Name="ContarRoles" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarRoles">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM Roles</CommandText>
@@ -380,7 +380,7 @@ SELECT rol, name, status FROM Roles WHERE (rol = @rol)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectName="clinicaDB.dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectName="clinicaDB.dbo.Roles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT rol, name, status FROM dbo.Roles where rol = @rol</CommandText>
@@ -483,7 +483,7 @@ SELECT Id, [user], password, passwordFchExp, name, status FROM Usuarios WHERE (I
               <Mapping SourceColumn="status" DataSetColumn="status" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarUsuarios" Modifier="Public" Name="ContarUsuarios" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ContarUsuarios">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ContarUsuarios" Modifier="Public" Name="ContarUsuarios" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ContarUsuarios">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM Usuarios</CommandText>
@@ -502,21 +502,21 @@ where [user] = @user</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="IsAuthorized" Modifier="Public" Name="IsAuthorized" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="IsAuthorized">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="IsAuthorized" Modifier="Public" Name="IsAuthorized" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="IsAuthorized">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOP (1) 1 AS Authorized
 FROM  Usuarios INNER JOIN
-         RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp &lt; GETDATE() AND Usuarios.Id = @id INNER JOIN
-         VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp &lt; GETDATE() AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.verificacion = @verificacion</CommandText>
+         RolesXUsuario ON Usuarios.Id = RolesXUsuario.userId AND RolesXUsuario.status = 'ACT' AND RolesXUsuario.fechaExp &gt; GETDATE() AND Usuarios.Id = @id INNER JOIN
+         VerificacionesXRol ON RolesXUsuario.rol = VerificacionesXRol.rol AND VerificacionesXRol.fechaExp &gt; GETDATE() AND VerificacionesXRol.status = 'ACT' AND VerificacionesXRol.verificacion = @verificacion</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="id" ColumnName="Id" DataSourceName="clinicaDB.dbo.Usuarios" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="Id" DataSourceName="clinicaDB.dbo.Usuarios" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="verificacion" ColumnName="verificacion" DataSourceName="clinicaDB.dbo.VerificacionesXRol" DataTypeServer="varchar(250)" DbType="AnsiString" Direction="Input" ParameterName="@verificacion" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="verificacion" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="LastUserId" Modifier="Public" Name="LastUserId" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="LastUserId">
+              <DbSource ConnectionRef="clinicaDBConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="LastUserId" Modifier="Public" Name="LastUserId" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="LastUserId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT @@IDENTITY AS Expr1</CommandText>
@@ -777,24 +777,24 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Verificaciones" msprop:Generator_RowClassName="VerificacionesRow" msprop:Generator_RowEvHandlerName="VerificacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="VerificacionesRowDeleted" msprop:Generator_RowDeletingName="VerificacionesRowDeleting" msprop:Generator_RowEvArgName="VerificacionesRowChangeEvent" msprop:Generator_TablePropName="Verificaciones" msprop:Generator_RowChangedName="VerificacionesRowChanged" msprop:Generator_UserTableName="Verificaciones" msprop:Generator_RowChangingName="VerificacionesRowChanging" msprop:Generator_TableClassName="VerificacionesDataTable" msprop:Generator_TableVarName="tableVerificaciones">
+        <xs:element name="Verificaciones" msprop:Generator_RowEvHandlerName="VerificacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="VerificacionesRowDeleted" msprop:Generator_RowDeletingName="VerificacionesRowDeleting" msprop:Generator_RowEvArgName="VerificacionesRowChangeEvent" msprop:Generator_TablePropName="Verificaciones" msprop:Generator_RowChangedName="VerificacionesRowChanged" msprop:Generator_UserTableName="Verificaciones" msprop:Generator_RowChangingName="VerificacionesRowChanging" msprop:Generator_RowClassName="VerificacionesRow" msprop:Generator_TableClassName="VerificacionesDataTable" msprop:Generator_TableVarName="tableVerificaciones">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="verificacion" msprop:Generator_UserColumnName="verificacion" msprop:Generator_ColumnPropNameInTable="verificacionColumn" msprop:Generator_ColumnPropNameInRow="verificacion" msprop:Generator_ColumnVarNameInTable="columnverificacion">
+              <xs:element name="verificacion" msprop:Generator_ColumnPropNameInTable="verificacionColumn" msprop:Generator_ColumnPropNameInRow="verificacion" msprop:Generator_UserColumnName="verificacion" msprop:Generator_ColumnVarNameInTable="columnverificacion">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname">
+              <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -804,24 +804,24 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Roles" msprop:Generator_RowClassName="RolesRow" msprop:Generator_RowEvHandlerName="RolesRowChangeEventHandler" msprop:Generator_RowDeletedName="RolesRowDeleted" msprop:Generator_RowDeletingName="RolesRowDeleting" msprop:Generator_RowEvArgName="RolesRowChangeEvent" msprop:Generator_TablePropName="Roles" msprop:Generator_RowChangedName="RolesRowChanged" msprop:Generator_UserTableName="Roles" msprop:Generator_RowChangingName="RolesRowChanging" msprop:Generator_TableClassName="RolesDataTable" msprop:Generator_TableVarName="tableRoles">
+        <xs:element name="Roles" msprop:Generator_RowEvHandlerName="RolesRowChangeEventHandler" msprop:Generator_RowDeletedName="RolesRowDeleted" msprop:Generator_RowDeletingName="RolesRowDeleting" msprop:Generator_RowEvArgName="RolesRowChangeEvent" msprop:Generator_TablePropName="Roles" msprop:Generator_RowChangedName="RolesRowChanged" msprop:Generator_UserTableName="Roles" msprop:Generator_RowChangingName="RolesRowChanging" msprop:Generator_RowClassName="RolesRow" msprop:Generator_TableClassName="RolesDataTable" msprop:Generator_TableVarName="tableRoles">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
+              <xs:element name="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname">
+              <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -831,33 +831,33 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuarios" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios">
+        <xs:element name="Usuarios" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Id" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" minOccurs="0" />
-              <xs:element name="user" msprop:Generator_UserColumnName="user" msprop:Generator_ColumnPropNameInTable="userColumn" msprop:Generator_ColumnPropNameInRow="user" msprop:Generator_ColumnVarNameInTable="columnuser" default="" minOccurs="0">
+              <xs:element name="Id" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
+              <xs:element name="user" msprop:Generator_ColumnPropNameInTable="userColumn" msprop:Generator_ColumnPropNameInRow="user" msprop:Generator_UserColumnName="user" msprop:Generator_ColumnVarNameInTable="columnuser" default="" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="password" msprop:Generator_UserColumnName="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnVarNameInTable="columnpassword">
+              <xs:element name="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_UserColumnName="password" msprop:Generator_ColumnVarNameInTable="columnpassword">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="256" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="passwordFchExp" msprop:Generator_UserColumnName="passwordFchExp" msprop:Generator_ColumnPropNameInTable="passwordFchExpColumn" msprop:Generator_ColumnPropNameInRow="passwordFchExp" msprop:Generator_ColumnVarNameInTable="columnpasswordFchExp" type="xs:dateTime" />
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname">
+              <xs:element name="passwordFchExp" msprop:Generator_ColumnPropNameInTable="passwordFchExpColumn" msprop:Generator_ColumnPropNameInRow="passwordFchExp" msprop:Generator_UserColumnName="passwordFchExp" msprop:Generator_ColumnVarNameInTable="columnpasswordFchExp" type="xs:dateTime" />
+              <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -867,19 +867,19 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RolesXUsuario" msprop:Generator_RowClassName="RolesXUsuarioRow" msprop:Generator_RowEvHandlerName="RolesXUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="RolesXUsuarioRowDeleted" msprop:Generator_RowDeletingName="RolesXUsuarioRowDeleting" msprop:Generator_RowEvArgName="RolesXUsuarioRowChangeEvent" msprop:Generator_TablePropName="RolesXUsuario" msprop:Generator_RowChangedName="RolesXUsuarioRowChanged" msprop:Generator_UserTableName="RolesXUsuario" msprop:Generator_RowChangingName="RolesXUsuarioRowChanging" msprop:Generator_TableClassName="RolesXUsuarioDataTable" msprop:Generator_TableVarName="tableRolesXUsuario">
+        <xs:element name="RolesXUsuario" msprop:Generator_RowEvHandlerName="RolesXUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="RolesXUsuarioRowDeleted" msprop:Generator_RowDeletingName="RolesXUsuarioRowDeleting" msprop:Generator_RowEvArgName="RolesXUsuarioRowChangeEvent" msprop:Generator_TablePropName="RolesXUsuario" msprop:Generator_RowChangedName="RolesXUsuarioRowChanged" msprop:Generator_UserTableName="RolesXUsuario" msprop:Generator_RowChangingName="RolesXUsuarioRowChanging" msprop:Generator_RowClassName="RolesXUsuarioRow" msprop:Generator_TableClassName="RolesXUsuarioDataTable" msprop:Generator_TableVarName="tableRolesXUsuario">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="userId" msprop:Generator_UserColumnName="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" type="xs:int" />
-              <xs:element name="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
+              <xs:element name="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_UserColumnName="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" type="xs:int" />
+              <xs:element name="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fechaExp" msprop:Generator_UserColumnName="fechaExp" msprop:Generator_ColumnPropNameInTable="fechaExpColumn" msprop:Generator_ColumnPropNameInRow="fechaExp" msprop:Generator_ColumnVarNameInTable="columnfechaExp" type="xs:dateTime" />
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
+              <xs:element name="fechaExp" msprop:Generator_ColumnPropNameInTable="fechaExpColumn" msprop:Generator_ColumnPropNameInRow="fechaExp" msprop:Generator_UserColumnName="fechaExp" msprop:Generator_ColumnVarNameInTable="columnfechaExp" type="xs:dateTime" />
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -889,25 +889,25 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VerificacionesXRol" msprop:Generator_RowClassName="VerificacionesXRolRow" msprop:Generator_RowEvHandlerName="VerificacionesXRolRowChangeEventHandler" msprop:Generator_RowDeletedName="VerificacionesXRolRowDeleted" msprop:Generator_RowDeletingName="VerificacionesXRolRowDeleting" msprop:Generator_RowEvArgName="VerificacionesXRolRowChangeEvent" msprop:Generator_TablePropName="VerificacionesXRol" msprop:Generator_RowChangedName="VerificacionesXRolRowChanged" msprop:Generator_UserTableName="VerificacionesXRol" msprop:Generator_RowChangingName="VerificacionesXRolRowChanging" msprop:Generator_TableClassName="VerificacionesXRolDataTable" msprop:Generator_TableVarName="tableVerificacionesXRol">
+        <xs:element name="VerificacionesXRol" msprop:Generator_RowEvHandlerName="VerificacionesXRolRowChangeEventHandler" msprop:Generator_RowDeletedName="VerificacionesXRolRowDeleted" msprop:Generator_RowDeletingName="VerificacionesXRolRowDeleting" msprop:Generator_RowEvArgName="VerificacionesXRolRowChangeEvent" msprop:Generator_TablePropName="VerificacionesXRol" msprop:Generator_RowChangedName="VerificacionesXRolRowChanged" msprop:Generator_UserTableName="VerificacionesXRol" msprop:Generator_RowChangingName="VerificacionesXRolRowChanging" msprop:Generator_RowClassName="VerificacionesXRolRow" msprop:Generator_TableClassName="VerificacionesXRolDataTable" msprop:Generator_TableVarName="tableVerificacionesXRol">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
+              <xs:element name="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_UserColumnName="rol" msprop:Generator_ColumnVarNameInTable="columnrol">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="verificacion" msprop:Generator_UserColumnName="verificacion" msprop:Generator_ColumnPropNameInTable="verificacionColumn" msprop:Generator_ColumnPropNameInRow="verificacion" msprop:Generator_ColumnVarNameInTable="columnverificacion">
+              <xs:element name="verificacion" msprop:Generator_ColumnPropNameInTable="verificacionColumn" msprop:Generator_ColumnPropNameInRow="verificacion" msprop:Generator_UserColumnName="verificacion" msprop:Generator_ColumnVarNameInTable="columnverificacion">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fechaExp" msprop:Generator_UserColumnName="fechaExp" msprop:Generator_ColumnPropNameInTable="fechaExpColumn" msprop:Generator_ColumnPropNameInRow="fechaExp" msprop:Generator_ColumnVarNameInTable="columnfechaExp" type="xs:dateTime" />
-              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
+              <xs:element name="fechaExp" msprop:Generator_ColumnPropNameInTable="fechaExpColumn" msprop:Generator_ColumnPropNameInRow="fechaExp" msprop:Generator_UserColumnName="fechaExp" msprop:Generator_ColumnVarNameInTable="columnfechaExp" type="xs:dateTime" />
+              <xs:element name="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnVarNameInTable="columnstatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
@@ -960,8 +960,8 @@ SELECT rol, verificacion, fechaExp, status FROM VerificacionesXRol WHERE (rol = 
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Medicos_Personas" msdata:parent="Personas" msdata:child="Medicos" msdata:parentkey="Identidad" msdata:childkey="Identidad" msprop:Generator_UserParentTable="Personas" msprop:Generator_UserChildTable="Medicos" msprop:Generator_RelationVarName="relationFK_Medicos_Personas" msprop:Generator_ChildPropName="GetMedicosRows" msprop:Generator_ParentPropName="PersonasRow" msprop:Generator_UserRelationName="FK_Medicos_Personas" />
-      <msdata:Relationship name="FK_VerificacionesXRol_Verificaciones" msdata:parent="Verificaciones" msdata:child="VerificacionesXRol" msdata:parentkey="verificacion" msdata:childkey="verificacion" msprop:Generator_UserParentTable="Verificaciones" msprop:Generator_UserChildTable="VerificacionesXRol" msprop:Generator_RelationVarName="relationFK_VerificacionesXRol_Verificaciones" msprop:Generator_ChildPropName="GetVerificacionesXRolRows" msprop:Generator_UserRelationName="FK_VerificacionesXRol_Verificaciones" msprop:Generator_ParentPropName="VerificacionesRow" />
+      <msdata:Relationship name="FK_Medicos_Personas" msdata:parent="Personas" msdata:child="Medicos" msdata:parentkey="Identidad" msdata:childkey="Identidad" msprop:Generator_UserParentTable="Personas" msprop:Generator_UserChildTable="Medicos" msprop:Generator_RelationVarName="relationFK_Medicos_Personas" msprop:Generator_ChildPropName="GetMedicosRows" msprop:Generator_UserRelationName="FK_Medicos_Personas" msprop:Generator_ParentPropName="PersonasRow" />
+      <msdata:Relationship name="FK_VerificacionesXRol_Verificaciones" msdata:parent="Verificaciones" msdata:child="VerificacionesXRol" msdata:parentkey="verificacion" msdata:childkey="verificacion" msprop:Generator_UserParentTable="Verificaciones" msprop:Generator_UserChildTable="VerificacionesXRol" msprop:Generator_RelationVarName="relationFK_VerificacionesXRol_Verificaciones" msprop:Generator_ChildPropName="GetVerificacionesXRolRows" msprop:Generator_ParentPropName="VerificacionesRow" msprop:Generator_UserRelationName="FK_VerificacionesXRol_Verificaciones" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

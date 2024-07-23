@@ -46,7 +46,7 @@ namespace ClinicaMedicaLib.Controladores.Seguridad
 
         public Rol? ObtenerRol(string codigo)
         {
-            var rol = rolesTableAdapter.GetDataBy(codigo).FirstOrDefault();
+            var rol = rolesTableAdapter.GetDataBy1(codigo).FirstOrDefault();
             if (rol == null)
             {
                 return null;
